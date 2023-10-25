@@ -1,0 +1,3 @@
+# ignore the files inside 
+# the eos_files folder 
+eos_files/*

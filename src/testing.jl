@@ -64,3 +64,18 @@ begin
     # plot!(x,(x->1/(3n_0)*thermodynamics(x*n_0)[6]/x).(x),
     # label = "\$n_{\\mu}\$")
 end
+
+begin
+    # Plotting the energy density per baryon number
+    # as a function of baryon number 
+
+    x = LinRange(1e-3,5.5,100)
+    y = (x->1e3thermodynamics(x*n_0,(0.1591)^4)[11]/(x*n_0)).(x)
+    min = findmin(y)[2]
+    ymin = trunc(Int64,y[min])
+    plot(x,y,
+        ylims = (900,1000),label=nothing,
+        ylabel = "\$ E/A\$ [MeV]",
+        xlabel = "\$ n_B/n_0 \$ ")
+    scatter!([x[min]],[y[min]],label = "\$E/A = \$ $(ymin) MeV")
+end

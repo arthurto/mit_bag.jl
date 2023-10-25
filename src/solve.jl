@@ -49,7 +49,7 @@ function eqs(nb,x) #
     nd,ns,nm = qts(nu,ne)[4:end]
 
     return [
-            nb - (nu+nd+ns)/3,            # equation for defining the barion density
+            nb - (nu+nd+ns)/3,            # equation for defining the baryon density
             -nm - ne + (2*nu -nd -ns)/3,  # equation for charge neutrality
             ]
 end
@@ -61,7 +61,7 @@ end
 
 # Defining the function that returns all the 
 # thermodynamical quantities as a function of nb
-function thermodynamics(nb)
+function thermodynamics(nb,B = (0.154)^4)
     nu,ne = solv(nb)
 
     μu,μe,μd,nd,ns,nm = qts(nu,ne)
@@ -71,10 +71,13 @@ function thermodynamics(nb)
     Ps,εs = Piεi(ns,0.093,6.0) 
     Pe,εe = Piεi(ne,0.000) 
     Pm,εm = Piεi(nm,0.105)
-    return [
-            nb,nu,nd,ns,ne,nm,
-            μu,μd,μe,
-            sum([Pu,Pd,Ps,Pe,Pm]),
-            sum([εu,εd,εs,εe,εm])
+    return [# 1, 2, 3, 4, 5, 6,
+             nb,nu,nd,ns,ne,nm,
+             #7, 8, 9,
+             μu,μd,μe,
+             # 10 = P 
+             sum([Pu,Pd,Ps,Pe,Pm])-B, # Adding and subtracting
+             # 11 = ε
+             sum([εu,εd,εs,εe,εm])+B  # the bag constant 
             ] 
 end

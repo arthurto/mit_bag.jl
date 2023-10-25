@@ -14,6 +14,12 @@ begin
     using CSV 
 end
 
+# Defining the value of the bag constant to be 
+# the one that the E/A ≈ 928 MeV
+begin
+    B = 0.1591^4 # GeV
+end
+
 # generating the data and saving it
 begin
     N = 100 # number of points
@@ -21,7 +27,7 @@ begin
     # data frame 
     for i in 1:N 
         nb = 5n_0*i/N
-        matrix[:,i] = thermodynamics(nb)
+        matrix[:,i] = thermodynamics(nb,B)
     end 
 end
 

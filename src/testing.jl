@@ -7,9 +7,17 @@ begin
     include("solve.jl")
 end
 
+# This plot is used to verify the best 
+# initial guess for the solver function
 begin
+    # defining a scale 
     Λ = 2
+    # defininf the initial density value 
     initial = n_0*0.5
+
+    # defining the range of the surfaces
+    #  x → n_u
+    #  y → n_e
 
     x = LinRange(-Λ*1e-3,Λ*1e-3,100)
     y = LinRange(0,Λ,100)
@@ -27,6 +35,8 @@ begin
 end
 
 begin
+    # Plotting the particle fractions 
+    # (up to a constant)
     x = LinRange(0,5,100)
 
     plot(x,x->thermodynamics(x*n_0)[2]/x)
@@ -35,10 +45,8 @@ begin
     plot!(x,x->thermodynamics(x*n_0)[5]/x)
 end
 
-# 
-# This program is used to test if the solutions are working properly
-# 
-
+# Now plotting the (almost) real particle fractions
+# in log scale 
 begin
     
     Λ = 0.5

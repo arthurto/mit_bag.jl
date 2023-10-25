@@ -16,6 +16,8 @@ include("func.jl")
 # n_0 
 n_0 = 0.15*(197^3*1e-9) # Nuclear saturation density in GeV^3
 
+# Function that returns μu,μe,μd,nd,ns,nm
+# as functions of nu and ne
 function qts(nu,ne)
 
     # finding the chemical potential as a function of 
@@ -35,12 +37,15 @@ function qts(nu,ne)
     return μu,μe,μd,nd,ns,nm
 end
 
-# defininf the function to be solved.
+# defining the vector function to be solved
+# vec(F(vec(x))) = vec(0)
+# in this case we have only two equations to be solved
 function eqs(nb,x) #
     
     # Getting the values for n_u and n_e 
     nu,ne = x
     
+    # using only the necessary quantities
     nd,ns,nm = qts(nu,ne)[4:end]
 
     return [
@@ -49,10 +54,13 @@ function eqs(nb,x) #
             ]
 end
 
+# Defining the solver function as a function of nb
 function solv(nb)
     return nlsolve(x->eqs(nb,x),[0.5,1e-2]*nb).zero
 end
 
+# Defining the function that returns all the 
+# thermodynamical quantities as a function of nb
 function thermodynamics(nb)
     nu,ne = solv(nb)
 

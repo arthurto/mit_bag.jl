@@ -17,14 +17,17 @@ end
 # generating the data and saving it
 begin
     N = 100 # number of points
-    matrix = zeros(11,N)
-    for i in 1:N
+    matrix = zeros(11,N) # matrix that stores the data to be written in the 
+    # data frame 
+    for i in 1:N 
         nb = 5n_0*i/N
         matrix[:,i] = thermodynamics(nb)
     end 
 end
 
 begin
+    # Defining the dataframe that 
+    # will be used to save the data 
     data = DataFrame(
         nb=matrix[1,:],
         nu=matrix[2,:],

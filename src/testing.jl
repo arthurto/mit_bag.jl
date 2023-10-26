@@ -37,7 +37,7 @@ end
 begin
     # Plotting the particle fractions 
     # (up to a constant)
-    x = LinRange(0,5,100)
+    x = LinRange(0,15,100)
 
     plot(x,x->thermodynamics(x*n_0)[2]/x)
     plot!(x,x->thermodynamics(x*n_0)[3]/x)

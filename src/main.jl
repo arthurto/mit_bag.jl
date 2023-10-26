@@ -22,7 +22,7 @@ end
 
 # generating the data and saving it
 begin
-    function EosGenerate(;N=100,B=0.1591^4,max_dens = 15.0,min_dens=2.0)
+    function EosGenerate(;N=100,B=0.1591^4,max_dens = 12.0,min_dens=2.0)
         matrix = zeros(11,N) # matrix that stores the data to be written in the 
         nnb = LinRange(min_dens*n_0,max_dens*n_0,N)
         for i in 1:N 

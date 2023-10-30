@@ -13,7 +13,7 @@ begin
     # defining a scale 
     Λ = 2
     # defininf the initial density value 
-    initial = n_0*0.5
+    initial = n_0*1.5
 
     # defining the range of the surfaces
     #  x → n_u
@@ -37,7 +37,7 @@ end
 begin
     # Plotting the particle fractions 
     # (up to a constant)
-    x = LinRange(0,15,100)
+    x = LinRange(0,12,100)
 
     plot(x,x->thermodynamics(x*n_0)[2]/x)
     plot!(x,x->thermodynamics(x*n_0)[3]/x)
@@ -70,7 +70,7 @@ begin
     # as a function of baryon number 
 
     x = LinRange(1e-3,5.5,100)
-    y = (x->1e3thermodynamics(x*n_0,(0.1591)^4)[11]/(x*n_0)).(x)
+    y = (x->1e3thermodynamics(x*n_0,(0.159)^4)[11]/(x*n_0)).(x)
     min = findmin(y)[2]
     ymin = trunc(Int64,y[min])
     plot(x,y,

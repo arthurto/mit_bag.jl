@@ -7,7 +7,7 @@
 # 
 
 # Importing the nonlinear solving package 
-using NLsolve
+using NLsolve 
 
 # Including 'func.jl'
 include("func.jl")
@@ -67,7 +67,7 @@ function thermodynamics(nb,B = (0.154)^4)
     μu,μe,μd,nd,ns,nm = qts(nu,ne)
 
     Pu,εu = Piεi(nu,0.002,6.0) 
-    Pd,εd = Piεi(nd,0.005,6.0)
+    Pd,εd = Piεi(nd,0.005,6.0) 
     Ps,εs = Piεi(ns,0.093,6.0) 
     Pe,εe = Piεi(ne,0.000) 
     Pm,εm = Piεi(nm,0.105)

@@ -1,7 +1,7 @@
 # 
 # This program will generate the EOS as save it as a csv file 
 # to be used to solve the TOV equations
-#  
+# 
 
 #
 # Including the solving functions 
@@ -34,6 +34,8 @@ begin
         return matrix 
     end  
 end
+
+EosGenerate()
 
 begin
     function main()

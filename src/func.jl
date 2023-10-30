@@ -10,7 +10,7 @@
 using QuadGK # this is the gaussian quadrature integral library
 
 
-# defining the energy E_k 
+# defining the energy E_k
 function Ek(k,m=0.0)
     return sqrt(k^2+m^2)
 end
@@ -49,7 +49,8 @@ function Piεi(n::Float64,m::Float64,g::Float64=2.0)
     kf = kfi(n,g)
     μ = μi(kf,m)
     ε = εi(kf,m,g)
-    return [-ε+n*μ,ε]
+    #        P     , ε
+    return [-ε+n*μ , ε]
 end
 
 # Fermi momentum in terms of the chemical potential μ

@@ -9,8 +9,10 @@
 # inporting the necessary libraries 
 using QuadGK # this is the gaussian quadrature integral library
 
-
+#
 # defining the energy E_k
+# Adicionando um comentário 
+# 
 function Ek(k,m=0.0)
     return sqrt(k^2+m^2)
 end
